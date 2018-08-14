@@ -1,11 +1,9 @@
 #pragma once
 
-#define ARDUINO_WAIT_TIME 2000
+#define WAIT_TIME 2000
 #define MAX_DATA_LENGTH 255
 
 #include <windows.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 
 using namespace std;
@@ -18,6 +16,7 @@ private:
 	COMSTAT status;
 	DWORD errors;
 	DCB connectionSettings;
+
 public:
 	SerialPort(const char *portName);
 	~SerialPort();
@@ -26,5 +25,6 @@ public:
 	bool Write(char *buffer, unsigned int buf_size);
 	bool IsConnected();
 
+private:	//methods
 	void SetSettings();
 };
